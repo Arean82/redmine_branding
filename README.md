@@ -13,6 +13,22 @@ independent of the selected theme:
 Tested with Redmine's themes Default, Alternate and Classic, and with
 [Klar](https://github.com/stbt-de/redmine-klar-theme), which styles the logo itself.
 
+## Screenshots
+
+*Shown with the [Klar theme](https://github.com/stbt-de/redmine-klar-theme) and example data.*
+
+Logo in the header:
+
+![Logo in the header](docs/screenshots/header.png)
+
+| Login page | Login page on mobile |
+| --- | --- |
+| ![Login page with logo](docs/screenshots/login.png) | ![Login page on mobile](docs/screenshots/mobile-login.png) |
+
+Settings under *Administration → Branding*:
+
+![Branding settings](docs/screenshots/settings.png)
+
 ## Installation
 
 The folder in `plugins/` must be named `redmine_branding`.
