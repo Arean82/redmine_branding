@@ -1,0 +1,9 @@
+<%# Mein Konto / Benutzer bearbeiten: "Logo verlinkt auf" (leer = Vorgabe des Admins) %>
+<% default_label = l(:label_branding_logo_link_default, target: RedmineBranding::LogoLink.label_for(RedmineBranding::LogoLink.admin_choice)) %>
+<%= labelled_fields_for :pref, user.pref do |pref_fields| %>
+  <p>
+    <%= pref_fields.select :branding_logo_link,
+          [[default_label, '']] + RedmineBranding::LogoLink::USER_CHOICES.map { |choice| [RedmineBranding::LogoLink.label_for(choice), choice] },
+          {}, id: 'pref_branding_logo_link' %>
+  </p>
+<% end %>

@@ -1,0 +1,99 @@
+/*
+ * Branding – Grunddarstellung für Themes ohne eigene Logo-Unterstützung.
+ *
+ * Dieses Stylesheet wird nach dem Theme geladen. Daher:
+ *   - Platzierung im Kopf und Abstand zum Login-Formular mit normaler
+ *     Spezifität – sie muss Redmines ID-Regeln schlagen. Themes, die das
+ *     Logo selbst darstellen (data-branding-logo="theme"), bekommen kein
+ *     .branding-logo in den Kopf.
+ *   - Aussehen des Logos auf der Anmeldeseite in :where() (keine
+ *     Spezifität), damit Themes es mit eigenen Regeln gestalten können.
+ */
+
+/* --- Logo im Kopf (von branding.js eingesetzt) ---------------------------- */
+
+.branding-logo {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.branding-logo:hover {
+  text-decoration: none;
+}
+
+.branding-logo img {
+  display: block;
+  width: auto;
+  height: 1.5em;
+  max-width: 8em;
+}
+
+/* Redmine setzt den Seitentitel als Spalte (Brotkrumen über dem Projekt):
+   Logo links daneben, mittig */
+#header h1:has(> .branding-logo) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+}
+
+/* Mit Brotkrumen zwei Zeilen: Logo über beide */
+#header h1:has(> .breadcrumbs) > .branding-logo {
+  grid-row: 1 / span 2;
+}
+
+/* Mobil: Seitentitel ist ausgeblendet, Logo links vor der Projektauswahl.
+   Die Projektauswahl liegt absolut über dem ganzen Kopf (64px hoch);
+   ihr Innenabstand rückt um die Logobreite nach rechts */
+.branding-logo-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 899px) {
+  #quick-search > .branding-logo-mobile {
+    display: flex;
+    position: absolute;
+    inset-inline-start: 16px;
+    inset-block-start: 16px;
+    z-index: 1;
+    margin: 0;
+  }
+
+  #quick-search > .branding-logo-mobile img {
+    height: 32px;
+    max-width: 96px;
+  }
+
+  #header:has(.branding-logo-mobile) #project-jump.drdn {
+    padding-inline-start: 60px;
+  }
+
+  /* Pfeil der Projektauswahl sitzt am linken Rand der Auswahl (sonst unter
+     dem Logo): hinter das Logo rücken */
+  #header:has(.branding-logo-mobile) #project-jump .drdn-trigger::before {
+    inset-inline-start: 44px;
+  }
+}
+
+/* --- Anmeldeseite: Logo über dem Formular ----------------------------------- */
+
+:where(.branding-login-logo) {
+  margin: 3em auto 1.5em;
+  text-align: center;
+}
+
+:where(.branding-login-logo) img {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  max-width: 240px;
+  max-height: 80px;
+}
+
+/* Formular rückt an das Logo heran */
+.branding-login-logo + #login-form {
+  margin-top: 0;
+}

@@ -1,0 +1,36 @@
+en:
+  label_branding: Branding
+  text_branding_intro: Logo and favicon of this Redmine installation – independent of the selected theme.
+  label_branding_current: Current
+  label_branding_new: New file
+  label_branding_options: Options
+  button_branding_upload: Upload
+
+  field_branding_logo: Logo
+  button_branding_logo_remove: Remove logo
+  text_branding_logo_none: No logo set.
+  text_branding_logo_hint: PNG, JPG, WebP, GIF or SVG, at most 2 MB. Shown before the page title and on the login page; square or wide.
+  notice_branding_logo_saved: Logo saved.
+  notice_branding_logo_removed: Logo removed.
+
+  field_branding_favicon: Favicon
+  button_branding_favicon_remove: Remove favicon
+  text_branding_favicon_none: No favicon set – the theme's favicon is used.
+  text_branding_favicon_hint: ICO, PNG or SVG, at most 512 KB, square (e.g. 48 × 48 px or SVG).
+  notice_branding_favicon_saved: Favicon saved.
+  notice_branding_favicon_removed: Favicon removed.
+
+  field_branding_login_logo: Logo on the login page
+
+  field_branding_logo_link: Logo links to
+  field_branding_logo_link_url: Custom address
+  label_branding_logo_link_custom: Custom address
+  label_branding_logo_link_default: "Default (%{target})"
+  text_branding_logo_link_hint: Default for everyone; users can choose their own target under My account. "My page" sends anonymous visitors to the home page.
+  text_branding_logo_link_url_hint: Only for "Custom address" – relative (/projects/internal) or with https://.
+  text_branding_logo_link_url_placeholder: https://… or /projects/…
+  error_branding_logo_link_url: Please enter a valid custom address (starting with / or https://).
+
+  error_branding_blank: Please choose a file.
+  error_branding_too_large: The file is larger than %{size}.
+  error_branding_type: This file format is not supported here.

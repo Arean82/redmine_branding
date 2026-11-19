@@ -1,0 +1,64 @@
+<h2><%= l(:label_branding) %></h2>
+
+<p><%= l(:text_branding_intro) %></p>
+
+<% [@logo, @favicon].each do |asset| %>
+  <% meta = asset.current %>
+  <fieldset class="box tabular settings" id="branding-<%= asset.kind %>">
+    <legend><%= l(:"field_branding_#{asset.kind}") %></legend>
+
+    <%= form_tag(branding_settings_asset_path(asset.kind), multipart: true, id: "branding-#{asset.kind}-form") do %>
+      <p>
+        <label><%= l(:label_branding_current) %></label>
+        <% if meta %>
+          <% size = asset.kind == 'logo' ? 64 : 32 %>
+          <%= image_tag branding_asset_path(asset.kind, v: meta['digest']), alt: l(:"field_branding_#{asset.kind}"),
+                        width: size, height: size, class: 'branding-preview',
+                        style: 'object-fit: contain; vertical-align: middle;' %>
+          <%= link_to sprite_icon('del', l(:"button_branding_#{asset.kind}_remove")), branding_settings_asset_path(asset.kind),
+                      method: :delete, data: { confirm: l(:text_are_you_sure) },
+                      class: 'icon icon-del', style: 'margin-left: 12px;' %>
+        <% else %>
+          <span class="branding-empty"><%= l(:"text_branding_#{asset.kind}_none") %></span>
+        <% end %>
+      </p>
+      <p>
+        <label for="branding_<%= asset.kind %>_file"><%= l(:label_branding_new) %></label>
+        <%= file_field_tag 'file', id: "branding_#{asset.kind}_file", accept: asset.allowed_types.keys.uniq.join(',') %>
+        <em class="info"><%= l(:"text_branding_#{asset.kind}_hint") %></em>
+      </p>
+      <p>
+        <%= submit_tag l(:button_branding_upload) %>
+      </p>
+    <% end %>
+  </fieldset>
+<% end %>
+
+<fieldset class="box tabular settings" id="branding-options">
+  <legend><%= l(:label_branding_options) %></legend>
+
+  <%= form_tag(branding_settings_options_path, id: 'branding-options-form') do %>
+    <p>
+      <label for="branding_logo_link"><%= l(:field_branding_logo_link) %></label>
+      <%= select_tag 'logo_link',
+            options_for_select(RedmineBranding::LogoLink::CHOICES.map { |choice| [RedmineBranding::LogoLink.label_for(choice), choice] },
+                               RedmineBranding::LogoLink.admin_choice),
+            id: 'branding_logo_link' %>
+      <em class="info"><%= l(:text_branding_logo_link_hint) %></em>
+    </p>
+    <p>
+      <label for="branding_logo_link_url"><%= l(:field_branding_logo_link_url) %></label>
+      <%= text_field_tag 'logo_link_url', RedmineBranding::LogoLink.custom_url, id: 'branding_logo_link_url',
+                         size: 50, placeholder: l(:text_branding_logo_link_url_placeholder) %>
+      <em class="info"><%= l(:text_branding_logo_link_url_hint) %></em>
+    </p>
+    <p>
+      <label for="branding_login_logo"><%= l(:field_branding_login_logo) %></label>
+      <%= hidden_field_tag 'login_logo', '0', id: nil %>
+      <%= check_box_tag 'login_logo', '1', RedmineBranding::Settings.login_logo?, id: 'branding_login_logo' %>
+    </p>
+    <p>
+      <%= submit_tag l(:button_save) %>
+    </p>
+  <% end %>
+</fieldset>

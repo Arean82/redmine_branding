@@ -1,0 +1,36 @@
+de:
+  label_branding: Branding
+  text_branding_intro: Logo und Favicon dieser Redmine-Installation – unabhängig vom gewählten Theme.
+  label_branding_current: Aktuell
+  label_branding_new: Neue Datei
+  label_branding_options: Optionen
+  button_branding_upload: Hochladen
+
+  field_branding_logo: Logo
+  button_branding_logo_remove: Logo entfernen
+  text_branding_logo_none: Kein Logo hinterlegt.
+  text_branding_logo_hint: PNG, JPG, WebP, GIF oder SVG, höchstens 2 MB. Erscheint vor dem Seitentitel und auf der Anmeldeseite; quadratisch oder breit.
+  notice_branding_logo_saved: Logo gespeichert.
+  notice_branding_logo_removed: Logo entfernt.
+
+  field_branding_favicon: Favicon
+  button_branding_favicon_remove: Favicon entfernen
+  text_branding_favicon_none: Kein Favicon hinterlegt – es gilt das Favicon des Themes.
+  text_branding_favicon_hint: ICO, PNG oder SVG, höchstens 512 KB, quadratisch (z. B. 48 × 48 px oder SVG).
+  notice_branding_favicon_saved: Favicon gespeichert.
+  notice_branding_favicon_removed: Favicon entfernt.
+
+  field_branding_login_logo: Logo auf der Anmeldeseite
+
+  field_branding_logo_link: Logo verlinkt auf
+  field_branding_logo_link_url: Eigene Adresse
+  label_branding_logo_link_custom: Eigene Adresse
+  label_branding_logo_link_default: "Standard (%{target})"
+  text_branding_logo_link_hint: Vorgabe für alle; Benutzer können unter Mein Konto ein eigenes Ziel wählen. „Meine Seite“ führt nicht angemeldete Besucher zur Hauptseite.
+  text_branding_logo_link_url_hint: Nur für „Eigene Adresse“ – relativ (/projects/intern) oder mit https://.
+  text_branding_logo_link_url_placeholder: https://… oder /projects/…
+  error_branding_logo_link_url: Bitte eine gültige eigene Adresse angeben (beginnend mit / oder https://).
+
+  error_branding_blank: Bitte eine Datei auswählen.
+  error_branding_too_large: Die Datei ist größer als %{size}.
+  error_branding_type: Dieses Dateiformat wird hier nicht unterstützt.
