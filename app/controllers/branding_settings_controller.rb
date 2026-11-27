@@ -47,7 +47,9 @@ class BrandingSettingsController < ApplicationController
         'override_footer' => params[:override_footer] == '1' ? '1' : '0',
         'custom_footer' => params[:custom_footer].to_s,
         'hide_admin_info' => params[:hide_admin_info] == '1' ? '1' : '0',
-        'whitelabel_app_name' => params[:whitelabel_app_name].to_s.strip
+        'whitelabel_app_name' => params[:whitelabel_app_name].to_s.strip,
+        'custom_login_title' => params[:custom_login_title].to_s.strip,
+        'custom_css' => params[:custom_css].to_s
       )
       flash[:notice] = l(:notice_successful_update)
     end

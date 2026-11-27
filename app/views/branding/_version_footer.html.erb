@@ -4,7 +4,28 @@
   show_version = Setting.plugin_redmine_branding['show_version_footer'] != '0'
   hide_admin_info = Setting.plugin_redmine_branding['hide_admin_info'] == '1'
   whitelabel_name = Setting.plugin_redmine_branding['whitelabel_app_name'].to_s.strip
+  custom_login_title = Setting.plugin_redmine_branding['custom_login_title'].to_s.strip
+  custom_css = Setting.plugin_redmine_branding['custom_css'].to_s.strip
 -%>
+<%- if custom_css.present? -%>
+<style>
+<%= raw(custom_css) %>
+</style>
+<%- end -%>
+<%- if custom_login_title.present? -%>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var loginForm = document.querySelector("#login-form");
+    if (loginForm) {
+      var h = document.createElement("h2");
+      h.style.textAlign = "center";
+      h.style.marginBottom = "12px";
+      h.textContent = <%= custom_login_title.to_json.html_safe %>;
+      loginForm.insertBefore(h, loginForm.firstChild);
+    }
+  });
+</script>
+<%- end -%>
 <%- if hide_admin_info -%>
 <style>
   #admin-menu a.info, a[href$="/admin/info"] { display: none !important; }

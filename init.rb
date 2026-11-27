@@ -14,7 +14,7 @@ Redmine::Plugin.register :redmine_branding do
   author 'stbt.de'
   author_url 'https://stbt.de/'
   description 'Logo im Kopf, Logo auf der Anmeldeseite und Favicon – für jedes Theme.'
-  version '1.0.1'
+  version '1.0.2'
   url 'https://github.com/stbt-de/redmine-branding'
   requires_redmine version_or_higher: '6.0.0'
 
@@ -29,7 +29,9 @@ Redmine::Plugin.register :redmine_branding do
     'override_footer' => '0',
     'custom_footer' => '',
     'hide_admin_info' => '0',
-    'whitelabel_app_name' => ''
+    'whitelabel_app_name' => '',
+    'custom_login_title' => '',
+    'custom_css' => ''
   }
 
   menu :admin_menu, :redmine_branding,

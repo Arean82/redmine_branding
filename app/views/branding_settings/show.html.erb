@@ -76,6 +76,15 @@
       <em class="info">Replaces "Redmine" in page titles and meta descriptions.</em>
     </p>
     <p>
+      <label for="branding_custom_login_title">Custom Login Welcome Title</label>
+      <%= text_field_tag 'custom_login_title', Setting.plugin_redmine_branding['custom_login_title'], id: 'branding_custom_login_title', size: 40, placeholder: 'Sign in to Synora Workspace' %>
+    </p>
+    <p>
+      <label for="branding_custom_css">Custom CSS Override</label>
+      <%= text_area_tag 'custom_css', Setting.plugin_redmine_branding['custom_css'], id: 'branding_custom_css', rows: 4, cols: 60, placeholder: '#top-menu { background: #1e293b; }' %>
+      <em class="info">Optional custom CSS injected across all pages for full theme white-labeling.</em>
+    </p>
+    <p>
       <label for="branding_login_logo"><%= l(:field_branding_login_logo) %></label>
       <%= hidden_field_tag 'login_logo', '0', id: nil %>
       <%= check_box_tag 'login_logo', '1', RedmineBranding::Settings.login_logo?, id: 'branding_login_logo' %>
