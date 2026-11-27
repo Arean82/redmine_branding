@@ -2,7 +2,27 @@
   override_footer = Setting.plugin_redmine_branding['override_footer'] == '1'
   custom_footer = Setting.plugin_redmine_branding['custom_footer'].to_s.strip
   show_version = Setting.plugin_redmine_branding['show_version_footer'] != '0'
+  hide_admin_info = Setting.plugin_redmine_branding['hide_admin_info'] == '1'
+  whitelabel_name = Setting.plugin_redmine_branding['whitelabel_app_name'].to_s.strip
 -%>
+<%- if hide_admin_info -%>
+<style>
+  #admin-menu a.info, a[href$="/admin/info"] { display: none !important; }
+</style>
+<%- end -%>
+<%- if whitelabel_name.present? -%>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    if (document.title.indexOf("Redmine") !== -1) {
+      document.title = document.title.split("Redmine").join(<%= whitelabel_name.to_json.html_safe %>);
+    }
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && metaDesc.content.indexOf("Redmine") !== -1) {
+      metaDesc.content = metaDesc.content.split("Redmine").join(<%= whitelabel_name.to_json.html_safe %>);
+    }
+  });
+</script>
+<%- end -%>
 <%- if override_footer && custom_footer.present? -%>
 <script>
   document.addEventListener("DOMContentLoaded", function() {

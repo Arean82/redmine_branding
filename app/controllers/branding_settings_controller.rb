@@ -45,7 +45,9 @@ class BrandingSettingsController < ApplicationController
         'logo_link_url' => url,
         'show_version_footer' => params[:show_version_footer] == '1' ? '1' : '0',
         'override_footer' => params[:override_footer] == '1' ? '1' : '0',
-        'custom_footer' => params[:custom_footer].to_s
+        'custom_footer' => params[:custom_footer].to_s,
+        'hide_admin_info' => params[:hide_admin_info] == '1' ? '1' : '0',
+        'whitelabel_app_name' => params[:whitelabel_app_name].to_s.strip
       )
       flash[:notice] = l(:notice_successful_update)
     end

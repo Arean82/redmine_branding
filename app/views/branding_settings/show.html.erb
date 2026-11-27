@@ -66,6 +66,16 @@
       <%= text_area_tag 'custom_footer', Setting.plugin_redmine_branding['custom_footer'], id: 'branding_custom_footer', rows: 3, cols: 60, placeholder: 'Powered by Synora Studio &copy; 2026' %>
     </p>
     <p>
+      <label for="branding_hide_admin_info">Hide Administration &rarr; Information</label>
+      <%= check_box_tag 'hide_admin_info', '1', Setting.plugin_redmine_branding['hide_admin_info'] == '1', id: 'branding_hide_admin_info' %>
+      <em class="info">Hides the Redmine Information link from the Administration menu.</em>
+    </p>
+    <p>
+      <label for="branding_whitelabel_app_name">White-Label App Name</label>
+      <%= text_field_tag 'whitelabel_app_name', Setting.plugin_redmine_branding['whitelabel_app_name'], id: 'branding_whitelabel_app_name', size: 40, placeholder: 'e.g. Synora Workspace' %>
+      <em class="info">Replaces "Redmine" in page titles and meta descriptions.</em>
+    </p>
+    <p>
       <label for="branding_login_logo"><%= l(:field_branding_login_logo) %></label>
       <%= hidden_field_tag 'login_logo', '0', id: nil %>
       <%= check_box_tag 'login_logo', '1', RedmineBranding::Settings.login_logo?, id: 'branding_login_logo' %>

@@ -27,7 +27,9 @@ Redmine::Plugin.register :redmine_branding do
     'logo_link' => 'my_page', 'logo_link_url' => '',
     'show_version_footer' => '1',
     'override_footer' => '0',
-    'custom_footer' => ''
+    'custom_footer' => '',
+    'hide_admin_info' => '0',
+    'whitelabel_app_name' => ''
   }
 
   menu :admin_menu, :redmine_branding,
