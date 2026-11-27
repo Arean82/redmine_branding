@@ -125,3 +125,8 @@ integration tests and was checked in a running Redmine with the themes listed ab
 ## License
 
 MIT, see [`LICENSE`](LICENSE).
+
+
+## Version 1.0.2 Enhancements
+- **White-Labeling & Footer Control:** Custom Footer HTML/Text with **Override All Footers** toggle, **Show Redmine Version in Footer** toggle, **Hide Administration → Information** toggle, **White-Label App Name**, **Custom Login Welcome Title**, and **Custom CSS Override**.
+- **Feature Enhancements:** Added by **Arean Narrayan**.
