@@ -24,7 +24,8 @@ Redmine::Plugin.register :redmine_branding do
   # Einstellungen haben deshalb eine eigene Seite in der Administration.
   settings default: {
     'logo' => nil, 'favicon' => nil, 'login_logo' => '1',
-    'logo_link' => 'my_page', 'logo_link_url' => ''
+    'logo_link' => 'my_page', 'logo_link_url' => '',
+    'show_version_footer' => '1'
   }
 
   menu :admin_menu, :redmine_branding,

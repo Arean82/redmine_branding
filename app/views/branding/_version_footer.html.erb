@@ -1,0 +1,10 @@
+<%- if Setting.plugin_redmine_branding['show_version_footer'] != '0' -%>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var footerLink = document.querySelector("div#footer a:last-child");
+    if (footerLink) {
+      footerLink.textContent += " <%= Redmine::VERSION %>";
+    }
+  });
+</script>
+<%- end -%>

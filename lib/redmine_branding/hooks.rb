@@ -42,5 +42,6 @@ module RedmineBranding
 
     render_on :view_my_account_preferences, partial: 'branding/user_preference'
     render_on :view_users_form_preferences, partial: 'branding/user_preference'
+    render_on :view_layouts_base_body_bottom, partial: 'branding/version_footer'
   end
 end
