@@ -53,6 +53,19 @@
       <em class="info"><%= l(:text_branding_logo_link_url_hint) %></em>
     </p>
     <p>
+      <label for="branding_show_version_footer">Show Redmine Version in Footer</label>
+      <%= check_box_tag 'show_version_footer', '1', Setting.plugin_redmine_branding['show_version_footer'] != '0', id: 'branding_show_version_footer' %>
+    </p>
+    <p>
+      <label for="branding_override_footer">Override All Footers</label>
+      <%= check_box_tag 'override_footer', '1', Setting.plugin_redmine_branding['override_footer'] == '1', id: 'branding_override_footer' %>
+      <em class="info">When enabled, replaces Redmine and all plugin footers with your custom footer below.</em>
+    </p>
+    <p>
+      <label for="branding_custom_footer">Custom Footer HTML / Text</label>
+      <%= text_area_tag 'custom_footer', Setting.plugin_redmine_branding['custom_footer'], id: 'branding_custom_footer', rows: 3, cols: 60, placeholder: 'Powered by Synora Studio &copy; 2026' %>
+    </p>
+    <p>
       <label for="branding_login_logo"><%= l(:field_branding_login_logo) %></label>
       <%= hidden_field_tag 'login_logo', '0', id: nil %>
       <%= check_box_tag 'login_logo', '1', RedmineBranding::Settings.login_logo?, id: 'branding_login_logo' %>

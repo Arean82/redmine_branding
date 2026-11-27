@@ -1,4 +1,21 @@
-<%- if Setting.plugin_redmine_branding['show_version_footer'] != '0' -%>
+<%-
+  override_footer = Setting.plugin_redmine_branding['override_footer'] == '1'
+  custom_footer = Setting.plugin_redmine_branding['custom_footer'].to_s.strip
+  show_version = Setting.plugin_redmine_branding['show_version_footer'] != '0'
+-%>
+<%- if override_footer && custom_footer.present? -%>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var footer = document.querySelector("div#footer");
+    if (footer) {
+      footer.innerHTML = <%= custom_footer.to_json.html_safe %>;
+      <%- if show_version -%>
+      footer.innerHTML += " <span class='redmine-version'>(<%= Redmine::VERSION %>)</span>";
+      <%- end -%>
+    }
+  });
+</script>
+<%- elsif show_version -%>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var footerLink = document.querySelector("div#footer a:last-child");

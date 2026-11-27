@@ -25,7 +25,9 @@ Redmine::Plugin.register :redmine_branding do
   settings default: {
     'logo' => nil, 'favicon' => nil, 'login_logo' => '1',
     'logo_link' => 'my_page', 'logo_link_url' => '',
-    'show_version_footer' => '1'
+    'show_version_footer' => '1',
+    'override_footer' => '0',
+    'custom_footer' => ''
   }
 
   menu :admin_menu, :redmine_branding,
