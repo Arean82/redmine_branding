@@ -5,10 +5,16 @@
 
 <p style="color: #475569; margin-bottom: 16px;"><%= l(:text_branding_intro) %></p>
 
+<style>
+  .branding-card p { padding-left: 0 !important; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .branding-card p label { float: none !important; margin-left: 0 !important; width: 90px !important; text-align: left !important; font-weight: 600; }
+  .branding-card p em.info { margin-left: 98px !important; width: 100%; }
+</style>
+
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; margin-bottom: 16px;">
 <% [@logo, @favicon].each do |asset| %>
   <% meta = asset.current %>
-  <fieldset class="box tabular settings" id="branding-<%= asset.kind %>" style="border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; padding: 16px; margin: 0;">
+  <fieldset class="box tabular settings branding-card" id="branding-<%= asset.kind %>" style="border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; padding: 16px; margin: 0;">
     <legend><%= l(:"field_branding_#{asset.kind}") %></legend>
 
     <%= form_tag(branding_settings_asset_path(asset.kind), multipart: true, id: "branding-#{asset.kind}-form") do %>
