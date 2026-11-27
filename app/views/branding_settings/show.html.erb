@@ -1,10 +1,14 @@
-<h2><%= l(:label_branding) %></h2>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+  <h2 style="margin: 0;"><%= l(:label_branding) %></h2>
+  <span style="background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 600;">v1.0.2 &bull; White-Label Suite</span>
+</div>
 
-<p><%= l(:text_branding_intro) %></p>
+<p style="color: #475569; margin-bottom: 16px;"><%= l(:text_branding_intro) %></p>
 
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; margin-bottom: 16px;">
 <% [@logo, @favicon].each do |asset| %>
   <% meta = asset.current %>
-  <fieldset class="box tabular settings" id="branding-<%= asset.kind %>">
+  <fieldset class="box tabular settings" id="branding-<%= asset.kind %>" style="border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; padding: 16px; margin: 0;">
     <legend><%= l(:"field_branding_#{asset.kind}") %></legend>
 
     <%= form_tag(branding_settings_asset_path(asset.kind), multipart: true, id: "branding-#{asset.kind}-form") do %>
@@ -33,6 +37,7 @@
     <% end %>
   </fieldset>
 <% end %>
+</div>
 
 <fieldset class="box tabular settings" id="branding-options">
   <legend><%= l(:label_branding_options) %></legend>
@@ -93,4 +98,5 @@
       <%= submit_tag l(:button_save) %>
     </p>
   <% end %>
+</div>
 </fieldset>
